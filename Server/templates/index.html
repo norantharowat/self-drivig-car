@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        
+        <title>Self driving car </title>
+        
+    </head>
+    <body>
+
+        <!-- <img id ="image" style="height: 300px; width: 300px;" > -->
+        <img id ="image" >
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
+    <script type="text/javascript">
+        const socket = io.connect("http://172.28.135.133:5000");
+        // const socket = io.connect("http://192.168.43.226:5000");
+        // var socket = io.connect('http://192.168.1.2:5000');
+        // console.log('data')
+        socket.on('picture', function(image) {
+            const imageElm = document.getElementById('image');
+            imageElm.src = `data:image/jpeg;base64,${image}`
+            console.log('data')
+        });
+
+   </script>
+    </body>
+
+    </html>
